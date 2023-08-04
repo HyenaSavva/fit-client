@@ -1,0 +1,10 @@
+.avatarBlock {
+  border-radius: 100%;
+}
+
+.avatar {
+  border-radius: 1rem;
+  cursor: pointer;
+
+  border-radius: 50%;
+}

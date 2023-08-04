@@ -1,0 +1,31 @@
+.formBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  width: 600px;
+  height: 600px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+span {
+  font-size: 0.85rem;
+}
+
+.bottomOptions {
+  display: flex;
+}
+
+.firstOption {
+  margin-right: 10%;
+}

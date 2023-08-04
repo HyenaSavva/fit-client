@@ -1,0 +1,41 @@
+.card {
+  width: 555px;
+  height: 320px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  margin: 2rem 2rem 2rem 0;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    #8d8d8d;
+  color: #fffdef;
+}
+
+.card img {
+  width: 10rem;
+  -webkit-user-drag: none;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 50%;
+}
+
+.cardContentWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardContent {
+  width: 50%;
+  height: 150px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}

@@ -1,0 +1,105 @@
+{
+  "cards": [
+    {
+      "cardNumber": "4444 4444 4444 4444",
+      "cardHolder": "ALEX ACERAMIC",
+      "cardName": "QWallet",
+      "balance": "15.356",
+      "cvvCode": "123",
+      "expire": "01.02.2023",
+      "src": "assets/images/visa_blue.png",
+      "id": 1
+    },
+    {
+      "cardNumber": "1111 1111 1111 1111",
+      "cardHolder": "ANTIFONI SUMAS",
+      "cardName": "Basic Corporation",
+      "balance": "306",
+      "cvvCode": "123",
+      "expire": ".01.202",
+      "src": "assets/images/visa_blue.png",
+      "id": 2
+    },
+    {
+      "cardNumber": "8566 7239 1084 6632",
+      "cardHolder": "DIO BRANDO",
+      "cardName": "Speedwagon Foundation",
+      "balance": "17.201.306",
+      "cvvCode": "246",
+      "expire": "04.2027",
+      "src": "assets/images/visa_blue.png",
+      "id": 3
+    },
+    {
+      "cardNumber": "8829 4910 4094 9494",
+      "cardHolder": "JONATHAN JOESTAR",
+      "cvvCode": "777",
+      "expire": "04.1930",
+      "src": "assets/images/visa_blue.png",
+      "id": 4
+    }
+  ],
+  "posts": [
+    {
+      "id": "asdads",
+      "title": "title",
+      "body": "asdads"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com"
+    },
+    {
+      "id": 3,
+      "name": "Alex Johnson",
+      "email": "alex.johnson@example.com"
+    },
+    {
+      "id": 4,
+      "name": "Emily Williams",
+      "email": "emily.williams@example.com"
+    },
+    {
+      "id": 5,
+      "name": "Michael Brown",
+      "email": "michael.brown@example.com"
+    },
+    {
+      "id": 6,
+      "name": "Sophia Lee",
+      "email": "sophia.lee@example.com"
+    },
+    {
+      "id": 7,
+      "name": "Matthew Taylor",
+      "email": "matthew.taylor@example.com"
+    },
+    {
+      "id": 8,
+      "name": "Olivia Martinez",
+      "email": "olivia.martinez@example.com"
+    },
+    {
+      "id": 9,
+      "name": "William Garcia",
+      "email": "william.garcia@example.com"
+    },
+    {
+      "id": 10,
+      "name": "Ava Robinson",
+      "email": "ava.robinson@example.com"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+.layout {
+  width: 100%;
+}
+
+.themeSwitch {
+  position: absolute;
+  left: 8rem;
+  top: 20%;
+  margin: 0.5rem;
+}
