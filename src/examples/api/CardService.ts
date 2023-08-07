@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
+import { envVariables } from "shared/lib";
 import { ICard } from "shared/types/ICard";
 
 export const cardAPI = createApi({
   reducerPath: "cardAPI",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000" }),
+  baseQuery: fetchBaseQuery({ baseUrl: envVariables.API_ENDPOINT }),
   tagTypes: ["Card"],
   endpoints: (build) => ({
     fetchAllCards: build.query<ICard[], void>({

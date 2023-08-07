@@ -1,4 +1,4 @@
-import { User } from "entities/user/model/types"; // to do - de rezolvat problema cross-imports
+import { User } from "entities/user/@x/user";
 
 enum CardType {
   Debit = "Debit",

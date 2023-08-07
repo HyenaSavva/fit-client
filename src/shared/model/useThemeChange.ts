@@ -11,6 +11,7 @@ interface useThemeChangeProps {
   changeTheme: () => void;
 }
 
+// to do - have to change switch logic entirely
 export const useThemeChange = (): useThemeChangeProps => {
   const { changeTheme } = useContext(PrimeReactContext);
   const [currentTheme, setCurrentTheme] = useState<ThemesEnum>(
