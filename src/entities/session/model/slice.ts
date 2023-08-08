@@ -20,7 +20,7 @@ const initialState: sessionState = {
   deleteUser: () => {},
 };
 
-const sessionSlice = createSlice({
+export const sessionSlice = createSlice({
   name: "session",
   initialState,
   reducers: {
@@ -29,3 +29,6 @@ const sessionSlice = createSlice({
     },
   },
 });
+
+export const { addUser } = sessionSlice.actions;
+export default sessionSlice.reducer;

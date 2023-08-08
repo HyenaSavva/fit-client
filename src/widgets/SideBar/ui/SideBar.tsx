@@ -1,10 +1,11 @@
-import CustomMenu from "components/common/custom/custom-menu/CustomMenu";
 import { AnimatePresence, motion } from "framer-motion";
+import { Menu } from "features/custom-menu/ui/Menu";
 import { useNavigate } from "react-router-dom";
-import { menuItems } from "examples/constants/constants";
+import { menuItems } from "../lib/menuItems";
 import { FC } from "react";
 
 import styles from "./SideBar.module.css";
+
 interface SideBarProps {}
 
 export const SideBar: FC<SideBarProps> = () => {
@@ -25,7 +26,7 @@ export const SideBar: FC<SideBarProps> = () => {
             staggerChildren: 20,
           }}
         >
-          <CustomMenu handleNavigate={handleNavigate} options={menuItems} />
+          <Menu handleNavigate={handleNavigate} options={menuItems} />
         </motion.div>
       </AnimatePresence>
     </div>

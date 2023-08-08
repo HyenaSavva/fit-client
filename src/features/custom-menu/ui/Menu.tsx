@@ -1,18 +1,18 @@
-import { PassThroughCutomMenuAttributes } from "examples/constants/constants";
-import CustomAvatar from "../custom-avatar/CustomAvatar";
+import { PassThroughCutomMenuAttributes } from "../lib/passThroughAttributes";
 import { MenuItem } from "primereact/menuitem";
 import { MegaMenu } from "primereact/megamenu";
 import { ButtonMenu } from "shared/ui";
+import { Avatar } from "entities/user";
 import { FC } from "react";
 
-import styles from "./CustomMenu.module.css";
+import styles from "./Menu.module.css";
 
-interface CustomMenuProps {
+interface MenuProps {
   handleNavigate: (path: string) => void;
   options: MenuItem[];
 }
 
-const CustomMenu: FC<CustomMenuProps> = ({ options, handleNavigate }) => {
+export const Menu: FC<MenuProps> = ({ options, handleNavigate }) => {
   return (
     <MegaMenu
       className={styles.menu}
@@ -27,7 +27,7 @@ const CustomMenu: FC<CustomMenuProps> = ({ options, handleNavigate }) => {
       }))}
       start={
         <section className={styles.topOptions}>
-          <CustomAvatar handleNavigate={handleNavigate} />
+          <Avatar handleNavigate={handleNavigate} />
         </section>
       }
       end={
@@ -42,5 +42,3 @@ const CustomMenu: FC<CustomMenuProps> = ({ options, handleNavigate }) => {
     />
   );
 };
-
-export default CustomMenu;

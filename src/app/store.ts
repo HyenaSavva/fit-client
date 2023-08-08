@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { sessionSlice } from "entities/session";
 import { cardSlice } from "entities/card";
 import { baseApi } from "shared/api";
 
 const rootReducer = combineReducers({
   [cardSlice.name]: cardSlice.reducer,
+  [sessionSlice.name]: sessionSlice.reducer,
   [baseApi.reducerPath]: baseApi.reducer,
 });
 

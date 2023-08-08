@@ -1,4 +1,4 @@
-import { User } from "entities/user/@x/user";
+import { User } from "entities/user/@x";
 
 enum CardType {
   Debit = "Debit",
