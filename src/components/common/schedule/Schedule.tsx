@@ -1,11 +1,10 @@
 import { Calendar } from "primereact/calendar";
-import { FC, useState } from "react";
+import { FC } from "react";
 
 interface ScheduleProps {}
 
 const Schedule: FC<ScheduleProps> = () => {
-  const [date, setDate] = useState(null);
-  return <Calendar value={date} onChange={(e) => setDate(e.value)} touchUI />;
+  return <Calendar touchUI />;
 };
 
 export default Schedule;

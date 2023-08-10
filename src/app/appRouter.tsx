@@ -29,6 +29,7 @@ export const router = createBrowserRouter([
     element: baseLayout,
     errorElement: <>404</>,
     children: [
+      { path: "dashboard", element: <Dashboard /> },
       {
         path: "login",
         element: <AuthPage />,
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/profile",
+        path: "profile",
         element: (
           <GuardGuest>
             <Profile />
@@ -50,7 +51,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/edit",
+        path: "edit",
         element: (
           <GuardGuest>
             <EditPage />
@@ -58,16 +59,15 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/calendar",
+        path: "calendar",
         element: (
           <GuardGuest>
             <Calendar />
           </GuardGuest>
         ),
       },
-      { path: "/dashboard", element: <Dashboard /> },
       {
-        path: "/settings",
+        path: "settings",
         element: (
           <GuardGuest>
             <Settings />

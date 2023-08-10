@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CardProps } from "./types";
-import { nanoid } from "nanoid";
 
 interface CardState {
   cards: CardProps[];
@@ -13,18 +12,17 @@ export const cardSlice = createSlice({
   initialState,
   reducers: {
     createCard(state, action: PayloadAction<CardProps>) {
-      state.cards.push({
-        ...action.payload,
-        id: nanoid(),
-      });
+      state.cards.push({ ...action.payload });
     },
+
     deleteCard(state, action: PayloadAction<string>) {
-      state.cards.filter((card) => card.id !== action.payload);
+      state.cards.filter((card) => card.cardNumber !== action.payload);
     },
+
     updateCard(state, action: PayloadAction<CardProps>) {
       const updatedCard = action.payload;
       state.cards = state.cards.map((card) =>
-        card.id === updatedCard.id ? updatedCard : card
+        card.cardNumber === updatedCard.cardNumber ? updatedCard : card
       );
     },
   },

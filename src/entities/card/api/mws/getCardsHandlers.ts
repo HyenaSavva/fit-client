@@ -8,5 +8,5 @@ export const getCardsHandler = [
     const cards = dbApi.card.getAll();
     return await res(ctx.delay(1200), ctx.json(cards));
   }),
-  rest.post("/cards", async (req, res, ctx) => {}),
+  // rest.post("/cards", async (req, res, ctx) => {}),
 ];

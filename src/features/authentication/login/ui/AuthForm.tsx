@@ -4,7 +4,7 @@ import { InputText } from "primereact/inputtext";
 import { SubmitHandler } from "react-hook-form";
 import { useAppDispatch } from "shared/model";
 import { Button } from "primereact/button";
-import { FC, useState } from "react";
+import { FC, memo, useState } from "react";
 import {
   useLoginMutation,
   setCredentials,
@@ -13,7 +13,7 @@ import {
 
 import styles from "./AuthForm.module.css";
 
-export const AuthForm: FC = () => {
+export const AuthForm: FC = memo(() => {
   const { register, handleSubmit, errors } = useAuthFormValidation();
   const [userNotFound, setUserNotFound] = useState<boolean>(false);
   const [generateUser, { error: loginError }] = useLoginMutation();
@@ -61,4 +61,4 @@ export const AuthForm: FC = () => {
       </form>
     </div>
   );
-};
+});
