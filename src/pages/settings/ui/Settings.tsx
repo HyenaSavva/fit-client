@@ -3,12 +3,10 @@ import { FC } from "react";
 
 interface SettingsProps {}
 
-const Settings: FC<SettingsProps> = () => {
+export const Settings: FC<SettingsProps> = () => {
   return (
     <>
       <ThemeSwitch />
     </>
   );
 };
-
-export default Settings;

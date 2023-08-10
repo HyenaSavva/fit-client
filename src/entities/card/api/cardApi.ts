@@ -7,7 +7,7 @@ export const cardApi = baseApi.injectEndpoints({
       query: () => ({ url: `/cards` }),
       providesTags: [CARD_TAG],
     }),
-    updateCard: build.mutation({
+    updateCard: build.mutation<CardProps, CardProps>({
       query: (card) => ({
         url: `/cards`,
         method: "PATCH",

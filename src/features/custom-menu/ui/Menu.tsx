@@ -1,6 +1,7 @@
 import { PassThroughCutomMenuAttributes } from "../lib/passThroughAttributes";
 import { MenuItem } from "primereact/menuitem";
 import { MegaMenu } from "primereact/megamenu";
+import { useNavigate } from "react-router-dom";
 import { ButtonMenu } from "shared/ui";
 import { Avatar } from "entities/user";
 import { FC } from "react";
@@ -8,11 +9,13 @@ import { FC } from "react";
 import styles from "./Menu.module.css";
 
 interface MenuProps {
-  handleNavigate: (path: string) => void;
   options: MenuItem[];
 }
 
-export const Menu: FC<MenuProps> = ({ options, handleNavigate }) => {
+export const Menu: FC<MenuProps> = ({ options }) => {
+  const navigate = useNavigate();
+  const handleNavigate = (path: string) => navigate(path);
+
   return (
     <MegaMenu
       className={styles.menu}
@@ -32,11 +35,22 @@ export const Menu: FC<MenuProps> = ({ options, handleNavigate }) => {
       }
       end={
         <section className={styles.bottomOptions}>
-          <ButtonMenu
-            icon="pi pi-cog"
-            url="settings"
-            handleNavigate={handleNavigate}
-          />
+          <ul>
+            <ol>
+              <ButtonMenu
+                icon="pi pi-cog"
+                url="settings"
+                handleNavigate={handleNavigate}
+              />
+            </ol>
+            <ol>
+              <ButtonMenu
+                icon="pi pi-sign-out"
+                url="login"
+                handleNavigate={handleNavigate}
+              />
+            </ol>
+          </ul>
         </section>
       }
     />

@@ -1,5 +1,4 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useFormValidation } from "shared/lib";
 import { Inputs } from "entities/card";
 import * as z from "zod";
 
@@ -11,13 +10,8 @@ const cardFormSchema = z.object({
 });
 
 export const useCardFormValidation = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>({
-    resolver: zodResolver(cardFormSchema),
-  });
+  const { register, handleSubmit, errors } =
+    useFormValidation<Inputs>(cardFormSchema);
 
   return { register, handleSubmit, errors };
 };

@@ -16,7 +16,7 @@ export const Avatar: FC<AvatarProps> = ({ handleNavigate }) => {
         image="https://sun9-67.userapi.com/impg/Yfvs1uWNky--yyQZgldwUyPPT6808HOeK7Nw9A/HwXHzMaTUiA.jpg?size=899x1200&quality=96&sign=7b0d707c26f3919fd4a7726fc4718492&type=album"
         shape="circle"
         size="xlarge"
-        onClick={() => handleNavigate("/")}
+        onClick={() => handleNavigate("/profile")}
       />
     </motion.div>
   );

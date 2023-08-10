@@ -1,34 +1,29 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { type User } from "entities/user";
+import { RootState } from "shared/model";
 
-type User = {
-  email: string;
-  token: string;
-  username: string;
-  bio: string;
-  image: string;
-};
-
-interface sessionState {
+interface AuthState {
   user: User | null;
-  addUser: (user: User) => void;
-  deleteUser: () => void;
+  token: string | null;
 }
 
-const initialState: sessionState = {
-  user: null,
-  addUser: () => {},
-  deleteUser: () => {},
-};
-
-export const sessionSlice = createSlice({
-  name: "session",
-  initialState,
+export const authSlice = createSlice({
+  name: "auth",
+  initialState: { user: null, token: null } as AuthState,
   reducers: {
-    addUser: (state, action: PayloadAction<sessionState>) => {
-      state.user = action.payload.user;
+    setCredentials: (
+      state,
+      { payload: { user, token } }: PayloadAction<AuthState>
+    ) => {
+      state.user = user;
+      state.token = token;
+    },
+    clearSessionData: (state) => {
+      state.user = null;
+      state.token = null;
     },
   },
 });
 
-export const { addUser } = sessionSlice.actions;
-export default sessionSlice.reducer;
+export const { setCredentials } = authSlice.actions;
+export const selectCurrentUser = (state: RootState) => state.auth.user;

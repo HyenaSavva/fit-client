@@ -1,0 +1,28 @@
+.formBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  width: 600px;
+  height: 600px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+label {
+  height: 25px;
+  width: 100%;
+
+  font-weight: 500;
+  font-size: 1rem;
+}

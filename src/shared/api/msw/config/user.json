@@ -1,7 +1,8 @@
-{
-  "username": "Jake",
-  "bio": "I work at statefarm",
-  "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
-  "email": "jake@jake.jake",
-  "token": "jwt.token"
-}
+[
+  {
+    "email": "user@example.com",
+    "password": "user123",
+    "token": "token",
+    "name": "John Doe"
+  }
+]

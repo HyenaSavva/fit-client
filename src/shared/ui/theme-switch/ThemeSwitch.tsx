@@ -8,7 +8,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = () => {
   const { changeTheme } = useThemeChange();
 
   return (
-    <div style={{ margin: "0.5rem" }}>
+    <div style={{ padding: "0.5rem" }}>
       <Button onClick={changeTheme}>Theme</Button>
     </div>
   );

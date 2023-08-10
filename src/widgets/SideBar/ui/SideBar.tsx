@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu } from "features/custom-menu/ui/Menu";
-import { useNavigate } from "react-router-dom";
 import { menuItems } from "../lib/menuItems";
 import { FC } from "react";
 
@@ -9,9 +8,6 @@ import styles from "./SideBar.module.css";
 interface SideBarProps {}
 
 export const SideBar: FC<SideBarProps> = () => {
-  const navigate = useNavigate();
-  const handleNavigate = (path: string) => navigate(path);
-
   return (
     <div className={styles.sidebar}>
       <AnimatePresence mode="wait">
@@ -26,7 +22,7 @@ export const SideBar: FC<SideBarProps> = () => {
             staggerChildren: 20,
           }}
         >
-          <Menu handleNavigate={handleNavigate} options={menuItems} />
+          <Menu options={menuItems} />
         </motion.div>
       </AnimatePresence>
     </div>

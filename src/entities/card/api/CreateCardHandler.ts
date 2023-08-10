@@ -2,7 +2,6 @@ import { type Inputs, type CardProps } from "../model/types";
 import { createCard, cardApi } from "entities/card";
 import { SubmitHandler } from "react-hook-form";
 import { useAppDispatch } from "shared/model";
-import { nanoid } from "nanoid";
 
 export const CreateCardHandler = () => {
   const [generateCard, {}] = cardApi.useCreateCardMutation();
@@ -15,7 +14,6 @@ export const CreateCardHandler = () => {
       cvvCode: data.cvvCode,
       expire: data.expire.toLocaleDateString().slice(3, 10),
       src: "assets/images/visa_blue.png",
-      id: nanoid(),
     };
     dispatch(createCard(newCard));
     await generateCard(newCard);

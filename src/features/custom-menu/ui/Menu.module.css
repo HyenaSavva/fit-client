@@ -15,9 +15,14 @@
 
 .bottomOptions {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
 
   height: 100%;
   padding-bottom: 2rem;
+}
+
+ol {
+  padding-top: 1rem;
 }

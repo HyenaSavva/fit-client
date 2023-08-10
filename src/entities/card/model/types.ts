@@ -1,4 +1,4 @@
-import { User } from "entities/user/@x";
+import { User } from "entities/user/@x"; //cross-import
 
 enum CardType {
   Debit = "Debit",
@@ -9,7 +9,6 @@ enum CardType {
 }
 
 export type CardProps = {
-  id: string;
   cardNumber?: string;
   cardType?: CardType;
   cvvCode?: string;

@@ -12,11 +12,11 @@ type LayoutProps = {
   bottomSlot?: ReactNode;
 };
 
-export const Layout: FC<LayoutProps> = (props) => {
+export const Layout: FC<LayoutProps> = ({ sidebarSlot }) => {
   return (
     <>
-      {props.sidebarSlot && props.sidebarSlot}
       <div className={styles.layout}>
+        {sidebarSlot && sidebarSlot}
         <main className={styles.main}>
           <AnimatePresence initial={false} mode="wait">
             <Outlet />

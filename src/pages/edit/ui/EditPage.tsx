@@ -6,7 +6,7 @@ import styles from "./EditPage.module.css";
 
 interface EditProps {}
 
-const EditPage: FC<EditProps> = () => {
+export const EditPage: FC<EditProps> = () => {
   return (
     <motion.div
       className={styles.edit}
@@ -18,5 +18,3 @@ const EditPage: FC<EditProps> = () => {
     </motion.div>
   );
 };
-
-export default EditPage;
