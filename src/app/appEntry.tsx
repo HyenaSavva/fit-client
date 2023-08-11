@@ -1,23 +1,29 @@
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider as ReduxProvider } from "react-redux";
 import { PrimeReactProvider } from "primereact/api";
 import { RouterProvider } from "react-router-dom";
-import { apiMockWorker } from "./apiMockWorkwer";
+import { store, persistor } from "./appStore";
 import ReactDOM from "react-dom/client";
 import { router } from "./appRouter";
-
-import { Provider } from "react-redux";
-import { store } from "shared/model";
 
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "shared/base.css";
 
-apiMockWorker.start();
+async function initApp() {
+  const { apiMockWorker } = await import("../app/apiMockWorker");
+  await apiMockWorker.start();
+}
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <Provider store={store}>
-    <PrimeReactProvider>
-      <RouterProvider router={router} />
-    </PrimeReactProvider>
-  </Provider>
-);
+initApp().then(() => {
+  ReactDOM.createRoot(document.getElementById("root")!).render(
+    <ReduxProvider store={store}>
+      <PersistGate persistor={persistor}>
+        <PrimeReactProvider>
+          <RouterProvider router={router} />
+        </PrimeReactProvider>
+      </PersistGate>
+    </ReduxProvider>
+  );
+});

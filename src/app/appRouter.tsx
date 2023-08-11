@@ -1,8 +1,7 @@
 import { Navigate, createBrowserRouter, useLocation } from "react-router-dom";
-import { selectCurrentUser } from "entities/session";
 import { baseLayout } from "./layouts/baseLayout";
-import { useAppSelector } from "shared/model";
 import { Dashboard } from "pages/dashboard";
+import { useAuth } from "entities/session";
 import { Settings } from "pages/settings";
 import { Calendar } from "pages/calendar";
 import { FC, ReactElement } from "react";
@@ -16,8 +15,8 @@ type GuardGuestProps = {
 };
 
 const GuardGuest: FC<GuardGuestProps> = ({ children }) => {
-  const user = useAppSelector(selectCurrentUser);
   const location = useLocation();
+  const user = useAuth();
 
   if (!user) return <Navigate to="/login" state={{ from: location }} />;
   return children;

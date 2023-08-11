@@ -6,7 +6,9 @@ interface SettingsProps {}
 export const Settings: FC<SettingsProps> = () => {
   return (
     <>
-      <ThemeSwitch />
+      <div style={{ padding: "0.5rem" }}>
+        <ThemeSwitch />
+      </div>
     </>
   );
 };

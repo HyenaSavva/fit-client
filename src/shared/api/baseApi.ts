@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { envVariables } from "shared/lib";
-import { RootState } from "shared/model";
 import { CARD_TAG } from "./tags";
 
 export const baseApi = createApi({
@@ -9,7 +8,7 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: envVariables.API_ENDPOINT,
     prepareHeaders: (headers, { getState }) => {
-      const token = (getState() as RootState).auth.token;
+      const token = (getState() as RootState).session.token;
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
         return headers;

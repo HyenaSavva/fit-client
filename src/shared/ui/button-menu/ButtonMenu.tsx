@@ -3,7 +3,7 @@ import { Button } from "primereact/button";
 import { FC, useState } from "react";
 
 interface ButtonMenuProps {
-  handleNavigate: (path: string) => void;
+  handleNavigate?: (path: string) => void;
   icon: string;
   url?: string;
   iconToSwitch?: string;
@@ -24,7 +24,7 @@ export const ButtonMenu: FC<ButtonMenuProps> = ({
         icon={iconToSwitch && isSwitched ? iconToSwitch : icon}
         onClick={() => {
           setIsSwitched(!isSwitched);
-          url && handleNavigate(url);
+          url && handleNavigate && handleNavigate(url);
         }}
         pt={{ icon: { style: { fontSize: "1.2rem" } } }}
       />

@@ -1,3 +1,2 @@
-export { store, type AppDispatch, type RootState } from "./store";
-export { useAppDispatch, useAppSelector } from "./storeHooks";
+export { useAppDispatch, useAppSelector } from "./hooks";
 export { useThemeChange } from "./useThemeChange";

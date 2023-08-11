@@ -1,7 +1,10 @@
 import { PassThroughCutomMenuAttributes } from "../lib/passThroughAttributes";
+import { ConfirmModal } from "shared/ui/confirm-modal";
+import { clearSessionData } from "entities/session";
 import { MenuItem } from "primereact/menuitem";
 import { MegaMenu } from "primereact/megamenu";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "shared/model";
 import { ButtonMenu } from "shared/ui";
 import { Avatar } from "entities/user";
 import { FC, memo } from "react";
@@ -13,7 +16,9 @@ interface MenuProps {
 }
 
 export const Menu: FC<MenuProps> = memo(({ options }) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const handleLogout = () => dispatch(clearSessionData());
   const handleNavigate = (path: string) => navigate(path);
 
   return (
@@ -44,10 +49,12 @@ export const Menu: FC<MenuProps> = memo(({ options }) => {
               />
             </ol>
             <ol>
-              <ButtonMenu
-                icon="pi pi-sign-out"
-                url="login"
-                handleNavigate={handleNavigate}
+              <ConfirmModal
+                buttonComponent={
+                  <ButtonMenu icon="pi pi-sign-out" url="login" />
+                }
+                handleAccept={handleLogout}
+                message="Are you sure you want to logout ?"
               />
             </ol>
           </ul>
