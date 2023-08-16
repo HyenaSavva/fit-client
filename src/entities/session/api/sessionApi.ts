@@ -6,7 +6,7 @@ import {
   type UserDto,
 } from "../model/types";
 
-const authApi = baseApi.injectEndpoints({
+const sessionApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     login: build.mutation<UserResponse, LoginRequest>({
       query: (credentials) => ({
@@ -35,4 +35,4 @@ const authApi = baseApi.injectEndpoints({
 });
 
 export const { useLoginMutation, useLogoutMutation, useProtectedQuery } =
-  authApi;
+  sessionApi;

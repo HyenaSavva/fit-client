@@ -11,4 +11,4 @@ export {
   useLoginMutation,
   useLogoutMutation,
   useProtectedQuery,
-} from "./api/authApi";
+} from "./api/sessionApi";
