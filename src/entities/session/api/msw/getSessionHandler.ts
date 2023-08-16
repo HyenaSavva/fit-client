@@ -1,14 +1,13 @@
-import { initDataBase } from "shared/api/msw";
-import { nanoid } from "@reduxjs/toolkit"; // lol
+import { __serverDB } from "shared/lib/server";
+import { nanoid } from "@reduxjs/toolkit";
 import { rest } from "msw";
 
-const dbApi = initDataBase();
 const token = nanoid();
 
 export const getSessionHandlers = [
   rest.post("/login", async (req, res, ctx) => {
     const { email, password } = await req.json();
-    const user = dbApi.user.findFirst({
+    const user = __serverDB.user.findFirst({
       where: {
         email: { equals: email },
         password: { equals: password },
@@ -16,7 +15,6 @@ export const getSessionHandlers = [
     });
 
     if (user) {
-      // sessionStorage.setItem("is-authenticated", "true");
       return res(ctx.status(200), ctx.json({ ...user, token }));
     }
 
@@ -24,7 +22,6 @@ export const getSessionHandlers = [
   }),
 
   rest.get("/logout", async (_, res, ctx) => {
-    // sessionStorage.setItem("is-authenticated", "false");
     return res(ctx.status(200));
   }),
 

@@ -11,15 +11,17 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "shared/base.css";
 
+const root = document.getElementById("root") as HTMLElement;
+
 async function initApp() {
-  const { apiMockWorker } = await import("../app/apiMockWorker");
-  await apiMockWorker.start();
+  const { startApiMockWorker } = await import("./apiMockWorker");
+  await startApiMockWorker();
 }
 
 initApp().then(() => {
-  ReactDOM.createRoot(document.getElementById("root")!).render(
+  ReactDOM.createRoot(root).render(
     <ReduxProvider store={store}>
-      <PersistGate persistor={persistor}>
+      <PersistGate loading={null} persistor={persistor}>
         <PrimeReactProvider>
           <RouterProvider router={router} />
         </PrimeReactProvider>
