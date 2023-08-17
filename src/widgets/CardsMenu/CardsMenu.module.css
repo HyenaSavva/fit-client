@@ -15,3 +15,8 @@
 .cardsMenu .p-dataview-grid {
   flex-wrap: no-wrap;
 }
+
+.cards {
+  display: flex;
+  overflow: auto;
+}

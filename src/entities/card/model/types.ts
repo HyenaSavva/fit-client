@@ -9,6 +9,7 @@ enum CardType {
 }
 
 export type CardProps = {
+  id: string;
   cardNumber?: string;
   cardType?: CardType;
   cvvCode?: string;

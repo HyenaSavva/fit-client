@@ -7,5 +7,5 @@ export const Profile: FC<ProfileProps> = () => {
   const { data } = useProtectedQuery();
   useEffect(() => {}, []);
 
-  return <>{data?.user.email}</>;
+  return <>{data ? data?.user.email : "something went wrong"}</>;
 };

@@ -1,7 +1,6 @@
 declare global {
-  /**
-   * Shared kernel
-   */
+  export type Email = string;
+  export type Id = number;
 
   /**
    * ⚠️ FSD

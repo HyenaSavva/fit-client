@@ -14,11 +14,12 @@ import {
   REGISTER,
 } from "redux-persist";
 import { sessionSlice } from "entities/session";
+import { cardSlice } from "entities/card";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [sessionSlice.name],
+  whitelist: [sessionSlice.name, cardSlice.name],
 };
 
 export const makeStore = () => {

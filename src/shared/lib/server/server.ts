@@ -1,6 +1,11 @@
-import { factory, primaryKey, persist } from "@mswjs/data";
+import { factory, primaryKey, persist, oneOf } from "@mswjs/data";
 
 export const db = factory({
+  user: {
+    id: primaryKey(String),
+    email: String,
+    password: String,
+  },
   card: {
     id: primaryKey(String),
     cardNumber: String,
@@ -11,15 +16,8 @@ export const db = factory({
     cardName: String,
     balance: String,
     src: String,
-    owner: String,
+    owner: oneOf("user"),
     cardType: String,
-  },
-  user: {
-    id: primaryKey(String),
-    email: String,
-    password: String,
-    token: String,
-    name: String,
   },
 });
 

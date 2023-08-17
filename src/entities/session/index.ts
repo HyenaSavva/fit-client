@@ -1,4 +1,4 @@
-export { getSessionHandlers } from "./api/msw/getSessionHandler";
+export { sessionHandlers } from "./api/msw/sessionHandler";
 export { type LoginRequest } from "./model/types";
 export {
   selectCurrentUser,

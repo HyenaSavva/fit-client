@@ -17,7 +17,7 @@ export const cardApi = baseApi.injectEndpoints({
     }),
     createCard: build.mutation<void, CardProps>({
       query: (card) => ({
-        url: "/cards",
+        url: "/card",
         method: "POST",
         body: card,
       }),
@@ -25,3 +25,9 @@ export const cardApi = baseApi.injectEndpoints({
     }),
   }),
 });
+
+export const {
+  useCreateCardMutation,
+  useFetchAllCardsQuery,
+  useUpdateCardMutation,
+} = cardApi;
