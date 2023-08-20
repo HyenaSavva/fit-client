@@ -4,7 +4,7 @@ import { InputText } from "primereact/inputtext";
 import { SubmitHandler } from "react-hook-form";
 import { useAppDispatch } from "shared/model";
 import { Button } from "primereact/button";
-import { FC, memo, useState } from "react";
+import { FC, memo } from "react";
 import {
   useLoginMutation,
   setCredentials,
@@ -15,7 +15,6 @@ import styles from "./AuthForm.module.css";
 
 export const AuthForm: FC = memo(() => {
   const { register, handleSubmit, errors } = useAuthFormValidation();
-  const [userNotFound, setUserNotFound] = useState<boolean>(false);
   const [generateUser, { error: loginError }] = useLoginMutation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -27,13 +26,15 @@ export const AuthForm: FC = memo(() => {
       password: data.password,
     };
     try {
-      const { user, token } = await generateUser(loginRequest).unwrap();
+      const response = await generateUser(loginRequest).unwrap();
+      const { user, token } = response;
+      console.log(response);
       if (user) {
         dispatch(setCredentials({ user, token }));
         navigate(location.state?.from?.pathname);
       }
     } catch (err) {
-      setUserNotFound(true);
+      console.log(err); // todo - <Toast />
     }
   };
 
@@ -53,7 +54,7 @@ export const AuthForm: FC = memo(() => {
           <label>{errors["password"]?.message}</label>
         </div>
         <Button type="submit">Submit</Button>
-        {userNotFound && (
+        {loginError && (
           <>
             Error: <pre>{JSON.stringify(loginError, null, 2)}</pre>
           </>

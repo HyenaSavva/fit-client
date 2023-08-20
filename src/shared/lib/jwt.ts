@@ -1,5 +1,4 @@
 import { SignJWT, jwtVerify } from "jose";
-import { RestRequest } from "msw";
 import { config } from ".";
 
 interface AccessTokenPayload {
@@ -17,9 +16,7 @@ export const signAccessToken = async (payload: AccessTokenPayload) => {
     .sign(secret);
 };
 
-export const verifyAccessToken = async (req: RestRequest) => {
-  const [, token] = req.headers.get("Authorization")?.split(" ") ?? "";
+export const verifyAccessToken = async (token: string) => {
   const { payload } = await jwtVerify(token, secret);
-
-  return payload;
+  return payload as { userId: Id; email: Email };
 };

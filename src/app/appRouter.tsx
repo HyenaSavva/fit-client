@@ -9,16 +9,20 @@ import { Profile } from "pages/profile";
 import { CardsPage } from "pages/cards";
 import { AuthPage } from "pages/auth";
 import { EditPage } from "pages/edit";
+// import { Loadable } from "shared/ui";
+// import { lazy } from "react";
+
+// const EditPage = lazy(() => import("pages/edit"));
 
 type GuardGuestProps = {
   children: ReactElement;
 };
 
 const GuardGuest: FC<GuardGuestProps> = ({ children }) => {
+  const { isAuthorized } = useAuth();
   const location = useLocation();
-  const user = useAuth();
 
-  if (!user) return <Navigate to="/login" state={{ from: location }} />;
+  if (!isAuthorized) return <Navigate to="/login" state={{ from: location }} />;
   return children;
 };
 

@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { Outlet } from "react-router-dom";
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, Suspense } from "react";
 
 import styles from "./Layout.module.css";
 
@@ -15,14 +15,16 @@ type LayoutProps = {
 export const Layout: FC<LayoutProps> = ({ sidebarSlot }) => {
   return (
     <>
-      <div className={styles.layout}>
-        {sidebarSlot && sidebarSlot}
-        <main className={styles.main}>
-          <AnimatePresence initial={false} mode="wait">
-            <Outlet />
-          </AnimatePresence>
-        </main>
-      </div>
+      <Suspense fallback={<>Loading</>}>
+        <div className={styles.layout}>
+          {sidebarSlot && sidebarSlot}
+          <main className={styles.main}>
+            <AnimatePresence initial={false} mode="wait">
+              <Outlet />
+            </AnimatePresence>
+          </main>
+        </div>
+      </Suspense>
     </>
   );
 };

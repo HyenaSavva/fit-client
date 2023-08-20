@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu } from "features/custom-menu/ui/Menu";
 import { menuItems } from "../lib/menuItems";
+import { Menu } from "features/custom-menu";
 import { FC } from "react";
 
 import styles from "./SideBar.module.css";

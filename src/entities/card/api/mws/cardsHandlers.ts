@@ -1,7 +1,7 @@
 import { __serverDB } from "shared/lib/server";
+import { CardProps } from "entities/card";
 import { config } from "shared/lib";
 import { rest } from "msw";
-import { CardProps } from "entities/card";
 
 export const cardHandlers = [
   rest.get("/cards", async (_, res, ctx) => {

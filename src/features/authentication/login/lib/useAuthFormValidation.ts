@@ -1,5 +1,5 @@
+import { LoginRequest } from "entities/session";
 import { useFormValidation } from "shared/lib";
-import { User } from "entities/user";
 import * as z from "zod";
 
 const authFormSchema = z.object({
@@ -13,7 +13,7 @@ const authFormSchema = z.object({
 
 export const useAuthFormValidation = () => {
   const { register, handleSubmit, errors } =
-    useFormValidation<User>(authFormSchema);
+    useFormValidation<LoginRequest>(authFormSchema);
 
   return { register, handleSubmit, errors };
 };

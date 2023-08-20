@@ -1,7 +1,7 @@
 export { sessionHandlers } from "./api/msw/sessionHandler";
 export { type LoginRequest } from "./model/types";
 export {
-  selectCurrentUser,
+  selectAuthorization,
   clearSessionData,
   setCredentials,
   sessionSlice,

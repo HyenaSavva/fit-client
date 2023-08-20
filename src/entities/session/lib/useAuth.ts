@@ -1,9 +1,8 @@
 import { useAppSelector } from "shared/model";
-import { selectCurrentUser } from "..";
+import { selectAuthorization } from "..";
 import { useMemo } from "react";
 
 export const useAuth = () => {
-  const user = useAppSelector(selectCurrentUser);
-
-  return useMemo(() => user, [user]);
+  const auth = useAppSelector(selectAuthorization);
+  return useMemo(() => auth, [auth]);
 };
