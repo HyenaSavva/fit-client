@@ -1,4 +1,5 @@
 import { CardsMenu } from "widgets/CardsMenu";
+import { CardModal } from "widgets/CardModal";
 // import { AddCardForm } from "features/card";
 import { FC } from "react";
 
@@ -9,7 +10,10 @@ interface CardsProps {}
 export const CardsPage: FC<CardsProps> = () => {
   return (
     <div className={styles.cardsWrapper}>
-      <h1>My Wallet</h1>
+      <section className={styles.cardsHeader}>
+        <h1>My Wallet</h1>
+        <CardModal />
+      </section>
       <div className={styles.cards}>
         <CardsMenu />
         {/* <AddCardForm /> */}

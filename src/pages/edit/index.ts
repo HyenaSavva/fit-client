@@ -1,1 +1,3 @@
-export { EditPage } from "./ui/EditPage";
+import { EditPage } from "./ui/EditPage";
+
+export default EditPage;

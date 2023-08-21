@@ -1,4 +1,4 @@
-import { AddCardForm } from "features/card";
+import { CardForm } from "features/card";
 import { motion } from "framer-motion";
 import { FC } from "react";
 
@@ -14,7 +14,7 @@ export const EditPage: FC<EditProps> = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
     >
-      <AddCardForm />
+      <CardForm />
     </motion.div>
   );
 };

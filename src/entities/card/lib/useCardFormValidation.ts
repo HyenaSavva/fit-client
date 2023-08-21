@@ -5,7 +5,7 @@ import * as z from "zod";
 const cardFormSchema = z.object({
   cardNumber: z.string().min(16, { message: "Card number is required" }),
   cardHolder: z.string().min(1, { message: "Card holder name is required" }),
-  cvvCode: z.string().min(3, { message: "CVV code must be 3 digits" }).max(3),
+  cvvCode: z.string().min(3, { message: "CVV code must be 3 digits" }),
   expire: z.date(),
 });
 

@@ -3,16 +3,16 @@ import { useCardFormValidation } from "entities/card";
 import { CreateCardHandler } from "entities/card";
 import { Button } from "primereact/button";
 import {
-  cvvCodeProps,
   cardHolderProps,
   cardNumberProps,
   calendarProps,
+  cvvCodeProps,
 } from "../../lib/inputConstants";
 import { FC } from "react";
 
-import styles from "./AddCardForm.module.css";
+import styles from "./CardForm.module.css";
 
-export const AddCardForm: FC = () => {
+export const CardForm: FC = () => {
   const { register, handleSubmit, errors } = useCardFormValidation();
   const { onSubmit } = CreateCardHandler();
 
@@ -20,10 +20,10 @@ export const AddCardForm: FC = () => {
     <div className={styles.formBlock}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <InputMaskOption
+          id="cardNumber"
           validation={{ register, errors }}
           inputMaskProps={cardNumberProps}
-          id="cardNumber"
-          label="Code Number"
+          label="Card Number"
         />
         <InputTextOption
           id="cardHolder"

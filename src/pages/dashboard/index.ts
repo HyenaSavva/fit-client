@@ -1,1 +1,3 @@
-export { Dashboard } from "./ui/Dashboard";
+import { Dashboard } from "./ui/Dashboard";
+
+export default Dashboard;

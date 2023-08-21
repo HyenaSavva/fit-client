@@ -5,11 +5,10 @@ interface ProfileProps {}
 
 export const Profile: FC<ProfileProps> = () => {
   const { data, error } = useProtectedQuery();
+  //@ts-ignore
   const { user, token } = useAuth();
 
-  useEffect(() => {
-    console.log(token);
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>

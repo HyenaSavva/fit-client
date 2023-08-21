@@ -1,1 +1,3 @@
-export { Settings } from "./ui/Settings";
+import { Settings } from "./ui/Settings";
+
+export default Settings;

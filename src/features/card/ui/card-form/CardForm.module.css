@@ -6,7 +6,6 @@
 
 .form {
   width: 600px;
-  height: 600px;
 
   display: flex;
   justify-content: center;
@@ -29,4 +28,5 @@ span {
 
 .firstOption {
   margin-right: 10%;
+  width: 50%;
 }

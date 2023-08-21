@@ -1,18 +1,17 @@
 import { Navigate, createBrowserRouter, useLocation } from "react-router-dom";
 import { baseLayout } from "./layouts/baseLayout";
-import { Dashboard } from "pages/dashboard";
 import { useAuth } from "entities/session";
-import { Settings } from "pages/settings";
-import { Calendar } from "pages/calendar";
 import { FC, ReactElement } from "react";
-import { Profile } from "pages/profile";
-import { CardsPage } from "pages/cards";
-import { AuthPage } from "pages/auth";
-import { EditPage } from "pages/edit";
-// import { Loadable } from "shared/ui";
-// import { lazy } from "react";
+import { Loadable } from "shared/ui";
+import { lazy } from "react";
 
-// const EditPage = lazy(() => import("pages/edit"));
+const Dashboard = Loadable(lazy(() => import("pages/dashboard")));
+const Settings = Loadable(lazy(() => import("pages/settings")));
+const Calendar = Loadable(lazy(() => import("pages/calendar")));
+const Profile = Loadable(lazy(() => import("pages/profile")));
+const CardsPage = Loadable(lazy(() => import("pages/cards")));
+const AuthPage = Loadable(lazy(() => import("pages/auth")));
+const EditPage = Loadable(lazy(() => import("pages/edit")));
 
 type GuardGuestProps = {
   children: ReactElement;

@@ -1,1 +1,3 @@
-export { Calendar } from "./ui/Calendar";
+import { Calendar } from "./ui/Calendar";
+
+export default Calendar;

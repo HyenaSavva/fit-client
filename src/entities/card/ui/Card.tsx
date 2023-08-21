@@ -9,7 +9,11 @@ export const Card = (props: CardProps) => {
   return (
     <CardWrapper
       className={styles.card}
-      title={cardName}
+      title={
+        <section>
+          {cardName} <br />
+        </section>
+      }
       footer={
         <section className={styles.description}>
           <p>{cardHolder}</p>
@@ -18,7 +22,7 @@ export const Card = (props: CardProps) => {
     >
       <div className={styles.cardContentWrapper}>
         <div className={styles.cardContent}>
-          <InfoReveal reveal={<h3>{balance}</h3>} />
+          <InfoReveal reveal={<h2>{balance}</h2>} />
         </div>
         <div className={styles.cardContent}>{cardNumber}</div>
       </div>
