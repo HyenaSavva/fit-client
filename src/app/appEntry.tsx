@@ -21,7 +21,7 @@ async function initApp() {
 initApp().then(() => {
   ReactDOM.createRoot(root).render(
     <ReduxProvider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate persistor={persistor}>
         <PrimeReactProvider>
           <RouterProvider router={router} />
         </PrimeReactProvider>

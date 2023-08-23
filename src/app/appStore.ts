@@ -1,7 +1,7 @@
 import { setupListeners } from "@reduxjs/toolkit/query";
+import { rootReducer, whitelist } from "./rootReducer";
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-import { rootReducer } from "./rootReducer";
 import { baseApi } from "shared/api";
 import {
   persistStore,
@@ -13,16 +13,10 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { sessionSlice } from "entities/session";
-import { cardSlice } from "entities/card";
 
-const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: [sessionSlice.name, cardSlice.name],
-};
+const persistConfig = { key: "root", storage, whitelist };
 
-export const makeStore = () => {
+const makeStore = () => {
   const store = configureStore({
     reducer: persistReducer(
       persistConfig,
