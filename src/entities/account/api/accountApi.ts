@@ -14,7 +14,7 @@ export const accountApi = baseApi.injectEndpoints({
       query: (accountId) => `account/${accountId}`,
     }),
     getAllAccounts: build.query<AccountProps[], void>({
-      query: () => ({ url: "account" }),
+      query: () => ({ url: "accounts" }),
     }),
     updateAccount: build.mutation<
       void,

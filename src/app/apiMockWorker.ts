@@ -1,9 +1,14 @@
 import { __startDataBaseMigration } from "shared/lib/server";
 import { sessionHandlers } from "entities/session";
+import { accountHandlers } from "entities/account";
 import { cardHandlers } from "entities/card";
 import { setupWorker } from "msw";
 
-const apiMockWorker = setupWorker(...cardHandlers, ...sessionHandlers);
+const apiMockWorker = setupWorker(
+  ...cardHandlers,
+  ...sessionHandlers,
+  ...accountHandlers
+);
 
 __startDataBaseMigration();
 

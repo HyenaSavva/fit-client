@@ -20,16 +20,10 @@ const sessionApi = baseApi.injectEndpoints({
       },
     }),
     logout: build.mutation<void, void>({
-      query: () => ({
-        url: "logout",
-        method: "GET",
-      }),
+      query: () => ({ url: "logout" }),
     }),
     protected: build.query<UserResponse, void>({
-      query: () => ({
-        url: "profile",
-        method: "GET",
-      }),
+      query: () => ({ url: "profile" }),
     }),
   }),
 });

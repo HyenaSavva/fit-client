@@ -1,17 +1,19 @@
-import { useGetAllAccountsQuery } from "entities/account";
+// import { useGetAllAccountsQuery } from "entities/account";
 import { Button } from "primereact/button";
 import { motion } from "framer-motion";
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import styles from "./EditPage.module.css";
 
 interface EditProps {}
 
 export const EditPage: FC<EditProps> = () => {
-  const { data } = useGetAllAccountsQuery();
+  // const { data } = useGetAllAccountsQuery();
+  const [visible, setVisible] = useState(false);
 
   const handleClick = () => {
-    console.log(data);
+    console.log("what");
+    setVisible(!visible);
   };
 
   return (
@@ -21,6 +23,7 @@ export const EditPage: FC<EditProps> = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
     >
+      {visible ? <>Visible</> : <>Not visible</>}
       <Button onClick={handleClick}>Execute</Button>
     </motion.div>
   );

@@ -6,7 +6,7 @@ export const accountHandlers = [
     console.log(req.params);
     res(ctx.status(200), ctx.json({ message: "done" }));
   }),
-  rest.get("account", async (req, res, ctx) => {
+  rest.get("accounts", async (req, res, ctx) => {
     console.log(req.params);
     return await res(
       ctx.delay(config.API_DELAY),

@@ -6,3 +6,5 @@ export {
   useGetAllAccountsQuery,
   useGetAccountQuery,
 } from "./api/accountApi";
+
+export { accountHandlers } from "./api/msw/accountHandlers";

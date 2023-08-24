@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
     element: baseLayout,
     errorElement: <>404</>,
     children: [
-      { path: "dashboard", element: <Dashboard /> },
+      { path: "", element: <Dashboard /> },
       {
         path: "login",
         element: <AuthPage />,
