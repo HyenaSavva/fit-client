@@ -1,4 +1,4 @@
-import { cardsData, userData } from "./__mocks";
+import { cardsData, accountsData, userData } from "./__mocks";
 import { db } from "./server";
 
 export const startDataBaseMigration = () => {
@@ -7,5 +7,6 @@ export const startDataBaseMigration = () => {
 
   const user = db.user.create(userData.user);
 
+  accountsData.forEach((account) => db.account.create(account));
   cardsData.forEach((card) => db.card.create({ ...card, owner: user }));
 };

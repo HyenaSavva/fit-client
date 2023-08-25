@@ -1,4 +1,4 @@
-// import { useGetAllAccountsQuery } from "entities/account";
+import { useGetAllAccountsQuery } from "entities/account";
 import { Button } from "primereact/button";
 import { motion } from "framer-motion";
 import { FC, useState } from "react";
@@ -8,11 +8,11 @@ import styles from "./EditPage.module.css";
 interface EditProps {}
 
 export const EditPage: FC<EditProps> = () => {
-  // const { data } = useGetAllAccountsQuery();
+  const { data } = useGetAllAccountsQuery();
   const [visible, setVisible] = useState(false);
 
   const handleClick = () => {
-    console.log("what");
+    console.log(data);
     setVisible(!visible);
   };
 
@@ -23,7 +23,7 @@ export const EditPage: FC<EditProps> = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
     >
-      {visible ? <>Visible</> : <>Not visible</>}
+      {visible && data ? <>{data[0].accountNumber}</> : <>Not visible</>}
       <Button onClick={handleClick}>Execute</Button>
     </motion.div>
   );

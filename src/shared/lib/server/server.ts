@@ -19,6 +19,14 @@ export const db = factory({
     owner: oneOf("user"),
     cardType: String,
   },
+  account: {
+    id: primaryKey(String),
+    accountNumber: String,
+    accountType: String,
+    initialDate: String,
+    currency: String,
+    balance: String,
+  },
 });
 
 persist(db, { storage: localStorage });
