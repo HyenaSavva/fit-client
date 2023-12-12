@@ -1,6 +1,7 @@
 [
   {
     "id": "1",
+    "title": "Wallet",
     "accountNumber": "MD02MO2252ASV64309447101",
     "accountType": "Debit",
     "initialDate": "2023-08-22",
@@ -9,6 +10,7 @@
   },
   {
     "id": "2",
+    "title": "Credit",
     "accountNumber": "US12345678901234567890",
     "accountType": "Credit",
     "initialDate": "2023-08-15",
@@ -17,6 +19,7 @@
   },
   {
     "id": "3",
+    "title": "EURO",
     "accountNumber": "EU98765432109876543210",
     "accountType": "Prepaid",
     "initialDate": "2023-07-01",
@@ -25,6 +28,7 @@
   },
   {
     "id": "4",
+    "title": "Japanese",
     "accountNumber": "JP45678901234567890123",
     "accountType": "Business",
     "initialDate": "2023-08-01",

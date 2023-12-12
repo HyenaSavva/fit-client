@@ -1,3 +1,4 @@
+import { __serverDB } from "shared/lib/server";
 import { config } from "shared/lib";
 import { rest } from "msw";
 
@@ -7,10 +8,14 @@ export const accountHandlers = [
     res(ctx.status(200), ctx.json({ message: "done" }));
   }),
   rest.get("accounts", async (req, res, ctx) => {
-    console.log(req.params);
-    return await res(
-      ctx.delay(config.API_DELAY),
-      ctx.json([{ accountNumber: "123" }])
-    );
+    try {
+      const cards = __serverDB.card.getAll();
+      return await res(ctx.delay(config.API_DELAY), ctx.json(cards));
+    } catch (err) {
+      return await res(
+        ctx.delay(config.API_DELAY),
+        ctx.json("Something went wrong")
+      );
+    }
   }),
 ];

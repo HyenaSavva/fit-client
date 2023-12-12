@@ -1,24 +1,24 @@
-import { type AccountProps } from "../model/types";
+import { type Account } from "../model/types";
 import { baseApi } from "shared/api";
 
 export const accountApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    createAccount: build.mutation<void, AccountProps>({
+    createAccount: build.mutation<void, Account>({
       query: (account) => ({
         url: "account",
         method: "POST",
         body: account,
       }),
     }),
-    getAccount: build.query<AccountProps, string>({
+    getAccount: build.query<Account, string>({
       query: (accountId) => `account/${accountId}`,
     }),
-    getAllAccounts: build.query<AccountProps[], void>({
+    getAllAccounts: build.query<Account[], void>({
       query: () => ({ url: "accounts" }),
     }),
     updateAccount: build.mutation<
       void,
-      { accountId: string; account: AccountProps }
+      { accountId: string; account: Account }
     >({
       query: ({ account, accountId }) => ({
         url: `account/${accountId}`,

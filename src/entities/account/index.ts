@@ -8,3 +8,4 @@ export {
 } from "./api/accountApi";
 
 export { accountHandlers } from "./api/msw/accountHandlers";
+export { Account } from "./ui/Account";

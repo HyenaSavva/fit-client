@@ -1,20 +1,12 @@
-import { useGetAllAccountsQuery } from "entities/account";
-import { Button } from "primereact/button";
+import { Account, useGetAllAccountsQuery } from "entities/account";
+import { Accordion } from "primereact/accordion";
 import { motion } from "framer-motion";
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import styles from "./EditPage.module.css";
 
-interface EditProps {}
-
-export const EditPage: FC<EditProps> = () => {
+export const EditPage: FC = () => {
   const { data } = useGetAllAccountsQuery();
-  const [visible, setVisible] = useState(false);
-
-  const handleClick = () => {
-    console.log(data);
-    setVisible(!visible);
-  };
 
   return (
     <motion.div
@@ -23,8 +15,13 @@ export const EditPage: FC<EditProps> = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
     >
-      {visible && data ? <>{data[0].accountNumber}</> : <>Not visible</>}
-      <Button onClick={handleClick}>Execute</Button>
+      <Accordion className={styles.accordion}>
+        {data ? (
+          data.map((account) => <Account account={account} />)
+        ) : (
+          <>Not visible</>
+        )}
+      </Accordion>
     </motion.div>
   );
 };

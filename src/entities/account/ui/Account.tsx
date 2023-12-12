@@ -1,9 +1,11 @@
+import { type Account as AccountType } from "../model/types";
+import { AccordionTab } from "primereact/accordion";
 import { FC } from "react";
 
-interface AccountProps {}
+interface AccountProps {
+  account: AccountType;
+}
 
-const Account: FC<AccountProps> = () => {
-  return <></>;
+export const Account: FC<AccountProps> = ({ account }) => {
+  return <AccordionTab header={account.title}>da</AccordionTab>;
 };
-
-export default Account;

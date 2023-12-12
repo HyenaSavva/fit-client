@@ -25,11 +25,12 @@ export const AuthForm: FC = memo(() => {
       email: data.email,
       password: data.password,
     };
+
     try {
       const response = await generateUser(loginRequest).unwrap();
       const { user, token } = response;
       console.log(response);
-      if (user) {
+      if (user && token) {
         dispatch(setCredentials({ user, token }));
         navigate(location.state?.from?.pathname);
       }
