@@ -1,5 +1,3 @@
-import { type User } from "entities/user/@x"; // cross-import
-
 export type UserDto = {
   email: string;
   id: string;
@@ -10,12 +8,19 @@ export type UserDto = {
   Symbol(): string;
 };
 
-export interface UserResponse {
-  user: User;
+export interface SignupRequest {
+  email: string;
+  password: string;
+}
+export interface SignupResponse {
   token: string;
 }
 
-export interface LoginRequest {
+export interface SigninRequest {
   email: string;
   password: string;
+}
+
+export interface SigninResponse {
+  token: string;
 }

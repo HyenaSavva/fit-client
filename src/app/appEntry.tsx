@@ -13,19 +13,12 @@ import "shared/base.css";
 
 const root = document.getElementById("root") as HTMLElement;
 
-async function initApp() {
-  const { startApiMockWorker } = await import("./apiMockWorker");
-  await startApiMockWorker();
-}
-
-initApp().then(() => {
-  ReactDOM.createRoot(root).render(
-    <ReduxProvider store={store}>
-      <PersistGate persistor={persistor}>
-        <PrimeReactProvider>
-          <RouterProvider router={router} />
-        </PrimeReactProvider>
-      </PersistGate>
-    </ReduxProvider>
-  );
-});
+ReactDOM.createRoot(root).render(
+  <ReduxProvider store={store}>
+    <PersistGate persistor={persistor}>
+      <PrimeReactProvider>
+        <RouterProvider router={router} />
+      </PrimeReactProvider>
+    </PersistGate>
+  </ReduxProvider>
+);

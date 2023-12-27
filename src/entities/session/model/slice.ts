@@ -1,8 +1,7 @@
 import { PayloadAction, createSelector, createSlice } from "@reduxjs/toolkit";
-import { type User } from "entities/user";
+import { sessionApi } from "../api/sessionApi";
 
 interface SessionState {
-  user: User | null;
   token: string | null;
   isAuthorized?: boolean;
 }
@@ -10,39 +9,37 @@ interface SessionState {
 export const sessionSlice = createSlice({
   name: "session",
   initialState: {
-    user: null,
     token: null,
     isAuthorized: false,
   } as SessionState,
   reducers: {
     setCredentials: (
       state,
-      { payload: { user, token } }: PayloadAction<SessionState>
+      { payload: { token } }: PayloadAction<SessionState>
     ) => {
-      state.user = user;
       state.token = token;
       state.isAuthorized = true;
     },
     clearSessionData: (state) => {
-      state.user = null;
       state.token = null;
       state.isAuthorized = false;
     },
   },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      sessionApi.endpoints.signin.matchFulfilled,
+      (state, { payload }) => {
+        state.token = payload.token;
+      }
+    );
+  },
 });
 
-const selectCurrentUser = (state: RootState) => ({
-  user: state.session.user,
-  token: state.session.token,
-});
+const selectCurrentUser = (state: RootState) => state.session.token;
 const selectIsAuthorized = (state: RootState) => state.session.isAuthorized;
 
 export const { setCredentials, clearSessionData } = sessionSlice.actions;
 export const selectAuthorization = createSelector(
   [selectCurrentUser, selectIsAuthorized],
-  ({ user, token }, isAuthorized) => ({
-    user,
-    token,
-    isAuthorized,
-  })
+  (token, isAuthorized) => ({ token, isAuthorized })
 );

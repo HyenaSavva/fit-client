@@ -1,5 +1,9 @@
-export { sessionHandlers } from "./api/msw/sessionHandler";
-export { type LoginRequest } from "./model/types";
+export type {
+  SignupRequest,
+  SignupResponse,
+  SigninRequest,
+  SigninResponse,
+} from "./model/types";
 export {
   selectAuthorization,
   clearSessionData,
@@ -8,7 +12,7 @@ export {
 } from "./model/slice";
 export { useAuth } from "./lib/useAuth";
 export {
-  useLoginMutation,
-  useLogoutMutation,
-  useProtectedQuery,
+  useSigninMutation,
+  useSignupMutation,
+  useRefreshMutation,
 } from "./api/sessionApi";

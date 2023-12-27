@@ -32,6 +32,9 @@ export const accountApi = baseApi.injectEndpoints({
         method: "DELETE",
       }),
     }),
+    getUsers: build.query<object[], void>({
+      query: () => `/user`,
+    }),
   }),
 });
 
@@ -41,4 +44,5 @@ export const {
   useUpdateAccountMutation,
   useGetAllAccountsQuery,
   useGetAccountQuery,
+  useGetUsersQuery,
 } = accountApi;

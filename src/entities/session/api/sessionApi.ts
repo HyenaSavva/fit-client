@@ -1,32 +1,63 @@
-import { mapUser } from "../lib/mapUser";
 import { baseApi } from "shared/api";
-import {
-  type UserResponse,
-  type LoginRequest,
-  type UserDto,
+import type {
+  SignupRequest,
+  SignupResponse,
+  SigninResponse,
+  SigninRequest,
 } from "../model/types";
+import { setCredentials } from "..";
 
-const sessionApi = baseApi.injectEndpoints({
+export const sessionApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    login: build.mutation<UserResponse, LoginRequest>({
+    signin: build.mutation<SigninResponse, SigninRequest>({
       query: (credentials) => ({
-        url: "login",
+        url: "auth/signin",
+        method: "POST",
+        credentials: "include",
+        body: credentials,
+      }),
+      onQueryStarted: async (request, { dispatch, queryFulfilled }) => {
+        const { data } = await queryFulfilled;
+        const accessToken = data.token;
+        console.log(accessToken);
+
+        dispatch(
+          setCredentials({
+            token: accessToken,
+            isAuthorized: true,
+          })
+        );
+      },
+    }),
+    signup: build.mutation<SignupResponse, SignupRequest>({
+      query: (credentials) => ({
+        url: "auth/signup",
+        method: "POST",
+        credentials: "include",
+        body: credentials,
+      }),
+      onQueryStarted: async (request, { dispatch, queryFulfilled }) => {
+        const { data } = await queryFulfilled;
+        const accessToken = data.token;
+        console.log(accessToken);
+
+        dispatch(
+          setCredentials({
+            token: accessToken,
+            isAuthorized: true,
+          })
+        );
+      },
+    }),
+    refresh: build.mutation<object, string>({
+      query: (credentials) => ({
+        url: "auth/refresh",
         method: "POST",
         body: credentials,
       }),
-      transformResponse: (response: UserDto) => {
-        const { user, token } = mapUser(response);
-        return { user, token };
-      },
-    }),
-    logout: build.mutation<void, void>({
-      query: () => ({ url: "logout" }),
-    }),
-    protected: build.query<UserResponse, void>({
-      query: () => ({ url: "profile" }),
     }),
   }),
 });
 
-export const { useLoginMutation, useLogoutMutation, useProtectedQuery } =
+export const { useSignupMutation, useSigninMutation, useRefreshMutation } =
   sessionApi;

@@ -9,8 +9,9 @@ export const baseApi = createApi({
     baseUrl: config.API_ENDPOINT,
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).session.token;
+
       if (token) {
-        headers.set("authorization", `Bearer ${token}`);
+        headers.set("Authorization", `Bearer ${token}`);
         return headers;
       }
     },

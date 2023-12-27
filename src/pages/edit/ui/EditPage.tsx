@@ -1,4 +1,4 @@
-import { Account, useGetAllAccountsQuery } from "entities/account";
+import { useGetUsersQuery } from "entities/account";
 import { Accordion } from "primereact/accordion";
 import { motion } from "framer-motion";
 import { FC } from "react";
@@ -6,7 +6,8 @@ import { FC } from "react";
 import styles from "./EditPage.module.css";
 
 export const EditPage: FC = () => {
-  const { data } = useGetAllAccountsQuery();
+  const { data } = useGetUsersQuery();
+  console.log(data);
 
   return (
     <motion.div
@@ -16,11 +17,12 @@ export const EditPage: FC = () => {
       transition={{ duration: 0.4 }}
     >
       <Accordion className={styles.accordion}>
-        {data ? (
-          data.map((account) => <Account account={account} />)
+        {/* {data ? (
+          // data.map((account) => <Account account={account} />)
+          data.map((item) => <p>{item.}</p>)
         ) : (
           <>Not visible</>
-        )}
+        )} */}
       </Accordion>
     </motion.div>
   );

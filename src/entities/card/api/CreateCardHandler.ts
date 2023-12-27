@@ -6,7 +6,7 @@ import { createCard } from "entities/card";
 import { nanoid } from "@reduxjs/toolkit";
 
 export const CreateCardHandler = () => {
-  const [generateCard, {}] = useCreateCardMutation();
+  const [generateCard] = useCreateCardMutation();
   const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
