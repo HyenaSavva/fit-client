@@ -9,7 +9,7 @@ export const Profile: FC<ProfileProps> = () => {
   const { token } = useAuth();
 
   useEffect(() => {}, []);
-  console.log(token);
+  // console.log(token);
 
   return <>{!error && data ? data : <>{JSON.stringify(error, null, 2)}</>}</>;
 };

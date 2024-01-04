@@ -14,7 +14,7 @@ import {
 import styles from "./AuthForm.module.css";
 
 export const AuthForm: FC = memo(() => {
-  const { register, handleSubmit, errors } = useAuthFormValidation();
+  const { register, handleSubmit } = useAuthFormValidation();
   const [generateUser, { error: loginError }] = useSigninMutation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ export const AuthForm: FC = memo(() => {
       const token = await generateUser(loginRequest).unwrap();
 
       if (token) {
-        dispatch(setCredentials(token));
+        dispatch(setCredentials({ token }));
         navigate(location.state?.from?.pathname);
       }
     } catch (err) {
@@ -43,7 +43,7 @@ export const AuthForm: FC = memo(() => {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.option}>
           <InputText {...register("email")} placeholder="Email" id="email" />
-          <label htmlFor="email">{errors["email"]?.message}</label>
+          {/* <label htmlFor="email">{errors["email"]?.message}</label> */}
         </div>
         <div className={styles.option}>
           <InputText
@@ -53,7 +53,7 @@ export const AuthForm: FC = memo(() => {
             id="password"
             autoComplete="user@example.com"
           />
-          <label htmlFor="password">{errors["password"]?.message}</label>
+          {/* <label htmlFor="password">{errors["password"]?.message}</label> */}
         </div>
         <Button type="submit">Submit</Button>
         {loginError && (

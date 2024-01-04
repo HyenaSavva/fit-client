@@ -5,10 +5,10 @@ import { cardSlice } from "entities/card";
 import { baseApi } from "shared/api";
 
 export const rootReducer = combineReducers({
+  [baseApi.reducerPath]: baseApi.reducer,
   [cardSlice.name]: cardSlice.reducer,
   [sessionSlice.name]: sessionSlice.reducer,
   [accountSlice.name]: accountSlice.reducer,
-  [baseApi.reducerPath]: baseApi.reducer,
 });
 
 export const whitelist = [sessionSlice.name, cardSlice.name];

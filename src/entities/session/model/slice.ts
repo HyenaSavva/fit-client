@@ -1,8 +1,9 @@
 import { PayloadAction, createSelector, createSlice } from "@reduxjs/toolkit";
 import { sessionApi } from "../api/sessionApi";
+import { SigninResponse } from "..";
 
 interface SessionState {
-  token: string | null;
+  token: SigninResponse | null;
   isAuthorized?: boolean;
 }
 
@@ -28,8 +29,8 @@ export const sessionSlice = createSlice({
   extraReducers: (builder) => {
     builder.addMatcher(
       sessionApi.endpoints.signin.matchFulfilled,
-      (state, { payload }) => {
-        state.token = payload.token;
+      (state, { payload: token }) => {
+        state.token = token;
       }
     );
   },
