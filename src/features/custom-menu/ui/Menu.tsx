@@ -29,9 +29,7 @@ export const Menu: FC<MenuProps> = memo(({ options }) => {
       model={options.map((option) => ({
         id: option.id,
         icon: option.icon,
-        command: () => {
-          handleNavigate(option.url as string);
-        },
+        command: () => { handleNavigate(option.url as string) },
       }))}
       start={
         <section className={styles.topOptions}>
@@ -50,9 +48,7 @@ export const Menu: FC<MenuProps> = memo(({ options }) => {
             </ol>
             <ol>
               <ConfirmModal
-                buttonComponent={
-                  <ButtonMenu icon="pi pi-sign-out" url="login" />
-                }
+                buttonComponent={<ButtonMenu icon="pi pi-sign-out" url="login" />}
                 handleAccept={handleLogout}
                 message="Are you sure you want to logout ?"
               />

@@ -1,4 +1,4 @@
-import { useGetUsersQuery } from "entities/account";
+import { useGetUsersQuery } from "entities/product";
 import { Accordion } from "primereact/accordion";
 import { motion } from "framer-motion";
 import { FC } from "react";

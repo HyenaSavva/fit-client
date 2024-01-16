@@ -16,7 +16,6 @@ export const ConfirmModal: FC<ConfirmModalProps> = ({
 }) => {
   const accept = handleAccept ? () => handleAccept() : undefined;
   const reject = handleReject ? () => handleReject() : undefined;
-
   const confirm = () => {
     confirmDialog({
       message: message,
@@ -29,7 +28,7 @@ export const ConfirmModal: FC<ConfirmModalProps> = ({
 
   return (
     <>
-      <ConfirmDialog draggable={false} />
+      <ConfirmDialog />
       <div onClick={confirm}>{buttonComponent}</div>
     </>
   );

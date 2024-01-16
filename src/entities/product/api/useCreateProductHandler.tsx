@@ -1,11 +1,11 @@
 import { type Inputs, type CardProps } from "../model/types";
-import { useCreateCardMutation } from "./cardApi";
+import { useCreateCardMutation } from "./productApi";
 import { SubmitHandler } from "react-hook-form";
 import { useAppDispatch } from "shared/model";
 import { createCard } from "entities/card";
 import { nanoid } from "@reduxjs/toolkit";
 
-export const CreateCardHandler = () => {
+export const useCreateCardHandler = () => {
   const [generateCard] = useCreateCardMutation();
   const dispatch = useAppDispatch();
 

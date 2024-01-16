@@ -28,54 +28,16 @@ const GuardGuest: FC<GuardGuestProps> = ({ children }) => {
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: baseLayout,
+    element: <GuardGuest>{baseLayout}</GuardGuest>,
     errorElement: <>404</>,
     children: [
       { path: "", element: <Dashboard /> },
-      {
-        path: "login",
-        element: <AuthPage />,
-      },
-      {
-        path: "cards",
-        element: (
-          <GuardGuest>
-            <CardsPage />
-          </GuardGuest>
-        ),
-      },
-      {
-        path: "profile",
-        element: (
-          <GuardGuest>
-            <Profile />
-          </GuardGuest>
-        ),
-      },
-      {
-        path: "edit",
-        element: (
-          <GuardGuest>
-            <EditPage />
-          </GuardGuest>
-        ),
-      },
-      {
-        path: "calendar",
-        element: (
-          <GuardGuest>
-            <Calendar />
-          </GuardGuest>
-        ),
-      },
-      {
-        path: "settings",
-        element: (
-          <GuardGuest>
-            <Settings />
-          </GuardGuest>
-        ),
-      },
+      { path: "cards", element: <CardsPage />, },
+      { path: "profile", element: <Profile /> },
+      { path: "edit", element: <EditPage /> },
+      { path: "calendar", element: <Calendar /> },
+      { path: "settings", element: <Settings /> },
     ],
   },
+  { path: "login", element: <AuthPage /> }
 ]);

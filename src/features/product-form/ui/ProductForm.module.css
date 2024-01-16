@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+}
+
+.list {
+  display: flex;
+  list-style: none;
+}
+
+.list li {
+  display: flex;
+  flex-direction: column;
+}

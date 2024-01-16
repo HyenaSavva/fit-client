@@ -1,5 +1,5 @@
 import { useAuth } from "entities/session";
-import { useGetUsersQuery } from "entities/account";
+import { useGetUsersQuery } from "entities/product";
 import { FC, useEffect } from "react";
 
 interface ProfileProps {}

@@ -34,5 +34,5 @@ export const sessionApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useSignupMutation, useSigninMutation, useRefreshMutation } =
+export const { useSigninMutation, useSignupMutation, useRefreshMutation } =
   sessionApi;

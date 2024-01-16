@@ -1,5 +1,5 @@
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { rootReducer, whitelist } from "./rootReducer";
+import { rootReducer, persistWhitelist } from "./rootReducer";
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { baseApi } from "shared/api";
@@ -14,7 +14,7 @@ import {
   REGISTER,
 } from "redux-persist";
 
-const persistConfig = { key: "root", storage, whitelist };
+const persistConfig = { key: "root", storage, persistWhitelist };
 
 const makeStore = () => {
   const store = configureStore({

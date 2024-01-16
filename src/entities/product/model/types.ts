@@ -1,4 +1,4 @@
-export type Account = {
+export type ProductProps = {
   id: string;
   accountNumber: string;
   title?: string;
@@ -6,4 +6,9 @@ export type Account = {
   initialDate?: string;
   currency?: string;
   balance?: string;
+};
+
+export type Inputs = {
+  productName: string;
+  expire: Date;
 };

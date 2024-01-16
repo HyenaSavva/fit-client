@@ -1,24 +1,24 @@
-import { type Account } from "../model/types";
+import { type ProductProps } from "../model/types";
 import { baseApi } from "shared/api";
 
-export const accountApi = baseApi.injectEndpoints({
+export const productApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    createAccount: build.mutation<void, Account>({
+    createProduct: build.mutation<void, ProductProps>({
       query: (account) => ({
         url: "account",
         method: "POST",
         body: account,
       }),
     }),
-    getAccount: build.query<Account, string>({
+    getAccount: build.query<ProductProps, string>({
       query: (accountId) => `account/${accountId}`,
     }),
-    getAllAccounts: build.query<Account[], void>({
+    getAllAccounts: build.query<ProductProps[], void>({
       query: () => ({ url: "accounts" }),
     }),
     updateAccount: build.mutation<
       void,
-      { accountId: string; account: Account }
+      { accountId: string; account: ProductProps }
     >({
       query: ({ account, accountId }) => ({
         url: `account/${accountId}`,
@@ -33,16 +33,16 @@ export const accountApi = baseApi.injectEndpoints({
       }),
     }),
     getUsers: build.query<object[], void>({
-      query: () => `/user`,
+      query: () => `/user/all`,
     }),
   }),
 });
 
 export const {
-  useCreateAccountMutation,
+  useCreateProductMutation,
   useDeleteAccountMutation,
   useUpdateAccountMutation,
   useGetAllAccountsQuery,
   useGetAccountQuery,
   useGetUsersQuery,
-} = accountApi;
+} = productApi;

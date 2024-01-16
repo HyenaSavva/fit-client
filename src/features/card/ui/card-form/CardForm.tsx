@@ -1,6 +1,6 @@
 import { InputTextOption, CalendarOption, InputMaskOption } from "../../";
 import { useCardFormValidation } from "entities/card";
-import { CreateCardHandler } from "entities/card";
+import { useCreateCardHandler } from "entities/card";
 import { Button } from "primereact/button";
 import {
   cardHolderProps,
@@ -14,7 +14,7 @@ import styles from "./CardForm.module.css";
 
 export const CardForm: FC = () => {
   const { register, handleSubmit, errors } = useCardFormValidation();
-  const { onSubmit } = CreateCardHandler();
+  const { onSubmit } = useCreateCardHandler();
 
   return (
     <div className={styles.formBlock}>

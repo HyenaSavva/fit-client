@@ -12,6 +12,7 @@ node_modules
 dist
 dist-ssr
 *.local
+src/shared/lib/server
 
 # Editor directories and files
 .vscode/*

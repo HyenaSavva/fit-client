@@ -2,7 +2,7 @@ import { useAuthFormValidation } from "../lib/useAuthFormValidation";
 import { useNavigate, useLocation } from "react-router-dom";
 import { InputText } from "primereact/inputtext";
 import { SubmitHandler } from "react-hook-form";
-import { useAppDispatch } from "shared/model";
+import { useAppDispatch, useAppSelector } from "shared/model";
 import { Button } from "primereact/button";
 import { FC, memo } from "react";
 import {
@@ -10,12 +10,16 @@ import {
   setCredentials,
   SigninRequest,
 } from "entities/session";
+import { selectUserData } from "entities/user";
 
 import styles from "./AuthForm.module.css";
 
 export const AuthForm: FC = memo(() => {
-  const { register, handleSubmit } = useAuthFormValidation();
+  const { register, handleSubmit, errors } = useAuthFormValidation();
   const [generateUser, { error: loginError }] = useSigninMutation();
+  const { isNew } = useAppSelector(selectUserData);
+  console.log(isNew);
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,7 +47,7 @@ export const AuthForm: FC = memo(() => {
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div className={styles.option}>
           <InputText {...register("email")} placeholder="Email" id="email" />
-          {/* <label htmlFor="email">{errors["email"]?.message}</label> */}
+          <label htmlFor="email">{errors["email"]?.message}</label>
         </div>
         <div className={styles.option}>
           <InputText
@@ -53,7 +57,7 @@ export const AuthForm: FC = memo(() => {
             id="password"
             autoComplete="user@example.com"
           />
-          {/* <label htmlFor="password">{errors["password"]?.message}</label> */}
+          <label htmlFor="password">{errors["password"]?.message}</label>
         </div>
         <Button type="submit">Submit</Button>
         {loginError && (
