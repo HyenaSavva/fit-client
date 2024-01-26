@@ -1,4 +1,4 @@
-import { useGetUsersQuery } from "entities/product";
+import { useGetAllProductsQuery } from "entities/product";
 import { Accordion } from "primereact/accordion";
 import { motion } from "framer-motion";
 import { FC } from "react";
@@ -6,7 +6,7 @@ import { FC } from "react";
 import styles from "./EditPage.module.css";
 
 export const EditPage: FC = () => {
-  const { data } = useGetUsersQuery();
+  const { data } = useGetAllProductsQuery();
   console.log(data);
 
   return (

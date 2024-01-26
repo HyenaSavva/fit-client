@@ -1,14 +1,22 @@
 export type ProductProps = {
-  id: string;
-  accountNumber: string;
-  title?: string;
-  accountType?: string;
-  initialDate?: string;
-  currency?: string;
-  balance?: string;
+  id?: string;
+  productName: string;
+  proteins: number;
+  carbohydrates: number;
+  calories: number;
+  fats: number;
+  gramms: number;
+  categoryId?: number;
+  img?: string;
+  // expire: Date;
 };
 
 export type Inputs = {
   productName: string;
-  expire: Date;
+  proteins: string;
+  carbohydrates: string;
+  calories: string;
+  fats: string;
+  gramms: string;
+  // expire: Date;
 };

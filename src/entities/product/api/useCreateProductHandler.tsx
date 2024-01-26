@@ -1,27 +1,26 @@
-import { type Inputs, type CardProps } from "../model/types";
-import { useCreateCardMutation } from "./productApi";
 import { SubmitHandler } from "react-hook-form";
 import { useAppDispatch } from "shared/model";
-import { createCard } from "entities/card";
-import { nanoid } from "@reduxjs/toolkit";
+import { createProduct } from "entities/product";
+import { ProductProps, type Inputs } from "../model/types";
+import { useCreateProductMutation } from "./productApi";
 
-export const useCreateCardHandler = () => {
-  const [generateCard] = useCreateCardMutation();
+export const useCreateProductHandler = () => {
+  const [generateProduct] = useCreateProductMutation();
   const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const newCard: CardProps = {
-      id: nanoid(),
-      cardNumber: data.cardNumber,
-      cardHolder: data.cardHolder,
-      cvvCode: data.cvvCode,
-      expire: data.expire.toLocaleDateString().slice(3, 10),
-      src: "assets/images/visa_blue.png",
+    const newProduct: ProductProps = {
+      productName: data.productName,
+      proteins: Number(data.proteins),
+      carbohydrates: Number(data.carbohydrates),
+      calories: Number(data.calories),
+      fats: Number(data.fats),
+      gramms: Number(data.gramms),
     };
 
     try {
-      dispatch(createCard(newCard));
-      await generateCard(newCard).unwrap();
+      const result = await generateProduct(newProduct).unwrap();
+      if (result) dispatch(createProduct(result));
     } catch (error) {
       console.log(error);
     }

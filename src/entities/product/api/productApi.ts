@@ -3,46 +3,42 @@ import { baseApi } from "shared/api";
 
 export const productApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    createProduct: build.mutation<void, ProductProps>({
-      query: (account) => ({
-        url: "account",
-        method: "POST",
-        body: account,
+    createProduct: build.mutation<ProductProps, ProductProps>({
+      query: (data) => ({
+        url: `product`,
+        method: `POST`,
+        body: data,
       }),
     }),
-    getAccount: build.query<ProductProps, string>({
-      query: (accountId) => `account/${accountId}`,
+    getProduct: build.query<ProductProps, string>({
+      query: (productId) => `product/${productId}`,
     }),
-    getAllAccounts: build.query<ProductProps[], void>({
-      query: () => ({ url: "accounts" }),
+    getAllProducts: build.query<ProductProps[], void>({
+      query: () => ({ url: `product/all` }),
     }),
-    updateAccount: build.mutation<
+    updateProduct: build.mutation<
       void,
-      { accountId: string; account: ProductProps }
+      { productId: string; product: ProductProps }
     >({
-      query: ({ account, accountId }) => ({
-        url: `account/${accountId}`,
-        method: "PUT",
-        body: account,
+      query: ({ product, productId }) => ({
+        url: `product/${productId}`,
+        method: `PUT`,
+        body: product,
       }),
     }),
-    deleteAccount: build.mutation<void, string>({
-      query: (accountId) => ({
-        url: `account/${accountId}`,
-        method: "DELETE",
+    deleteProduct: build.mutation<void, string>({
+      query: (productId) => ({
+        url: `product/${productId}`,
+        method: `DELETE`,
       }),
-    }),
-    getUsers: build.query<object[], void>({
-      query: () => `/user/all`,
     }),
   }),
 });
 
 export const {
+  useGetProductQuery,
+  useGetAllProductsQuery,
   useCreateProductMutation,
-  useDeleteAccountMutation,
-  useUpdateAccountMutation,
-  useGetAllAccountsQuery,
-  useGetAccountQuery,
-  useGetUsersQuery,
+  useDeleteProductMutation,
+  useUpdateProductMutation,
 } = productApi;

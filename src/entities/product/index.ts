@@ -1,13 +1,17 @@
 export { useProductFormValidation } from "./lib/useProductFormValidation";
-export { productSlice } from "./model/slice";
-export { type Inputs } from "./model/types";
+export {
+  productSlice,
+  createProduct,
+  deleteProduct,
+  setProducts,
+  selectProducts,
+} from "./model/slice";
+export type { Inputs, ProductProps } from "./model/types";
 export {
   useCreateProductMutation,
-  useDeleteAccountMutation,
-  useUpdateAccountMutation,
-  useGetAllAccountsQuery,
-  useGetAccountQuery,
-  useGetUsersQuery,
+  useGetAllProductsQuery,
+  useGetProductQuery,
 } from "./api/productApi";
 
+export { useCreateProductHandler } from "./api/useCreateProductHandler";
 export { Account } from "./ui/Account";

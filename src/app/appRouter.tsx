@@ -32,12 +32,12 @@ export const router = createBrowserRouter([
     errorElement: <>404</>,
     children: [
       { path: "", element: <Dashboard /> },
-      { path: "cards", element: <CardsPage />, },
+      { path: "cards", element: <CardsPage /> },
       { path: "profile", element: <Profile /> },
       { path: "edit", element: <EditPage /> },
       { path: "calendar", element: <Calendar /> },
       { path: "settings", element: <Settings /> },
     ],
   },
-  { path: "login", element: <AuthPage /> }
+  { path: "login", element: <AuthPage /> },
 ]);

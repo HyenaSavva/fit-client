@@ -1,5 +1,7 @@
 .form {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .list {
@@ -10,4 +12,12 @@
 .list li {
   display: flex;
   flex-direction: column;
+}
+
+li label {
+  height: 25px;
+}
+
+.secondOptions {
+  margin-left: 1rem;
 }

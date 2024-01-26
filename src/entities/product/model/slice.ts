@@ -11,15 +11,20 @@ export const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
+    setProducts(state, action: PayloadAction<ProductProps[]>) {
+      state.products = action.payload;
+    },
     createProduct(state, action: PayloadAction<ProductProps>) {
       state.products.push({ ...action.payload });
     },
     deleteProduct(state, action: PayloadAction<string>) {
       state.products.filter(
-        ({ accountNumber }) => accountNumber !== action.payload //
+        ({ id }) => id !== action.payload //
       );
     },
   },
 });
 
-export const { createProduct, deleteProduct } = productSlice.actions;
+export const selectProducts = (state: RootState) => state.product.products;
+export const { createProduct, deleteProduct, setProducts } =
+  productSlice.actions;
